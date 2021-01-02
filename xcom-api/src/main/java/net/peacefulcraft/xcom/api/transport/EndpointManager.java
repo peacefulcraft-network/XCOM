@@ -4,11 +4,6 @@ import java.util.List;
 
 public interface EndpointManager {
 	/**
-	 * @return A list of all the endpoints that are knwon to this proxy
-	 */
-	public List<Endpoint> getActiveEndpoints();
-
-	/**
 	 * A list of all the endpoints that are known and reachable through this proxy
 	 * @return
 	 */
