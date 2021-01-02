@@ -26,4 +26,12 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.peacefulcraft</groupId>
+			<artifactId>xcom-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>
