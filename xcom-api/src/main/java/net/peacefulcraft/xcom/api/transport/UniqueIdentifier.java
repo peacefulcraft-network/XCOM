@@ -1,4 +1,4 @@
-package net.peacefulcraft.transport;
+package net.peacefulcraft.xcom.api.transport;
 
 import java.security.Timestamp;
 
