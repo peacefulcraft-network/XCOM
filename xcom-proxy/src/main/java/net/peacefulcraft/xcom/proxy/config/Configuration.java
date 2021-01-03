@@ -46,10 +46,10 @@ public abstract class Configuration {
 					out.close();
 				}
 			} else {
-				XCOMProxy.logMessage("Found existing file at " + this.configName + ".yml - not creating a new one");
+				XCOMProxy._this().logMessage("Found existing file at " + this.configName + ".yml - not creating a new one");
 			}
 		} catch (IOException e) {
-			XCOMProxy.logError("Error initializing config file " + this.configName);
+			XCOMProxy._this().logError("Error initializing config file " + this.configName);
 			e.printStackTrace();
 		}
 	}
@@ -58,7 +58,7 @@ public abstract class Configuration {
 		try {
 			config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(XCOMProxy._this().getDataFolder(), this.configName + ".yml"));
 		  } catch (IOException e) {
-			XCOMProxy.logError("Unable to read configuration file" + this.configName + ".yml. Does it exist? Is there a YAMl syntax error?");
+			XCOMProxy._this().logError("Unable to read configuration file" + this.configName + ".yml. Does it exist? Is there a YAMl syntax error?");
 			e.printStackTrace();
 		  }
 	}
@@ -68,7 +68,7 @@ public abstract class Configuration {
 			ConfigurationProvider.getProvider(YamlConfiguration.class).save(config,
 				new File(XCOMProxy._this().getDataFolder(), this.configName + ".yml"));
 		  } catch (IOException e) {
-			XCOMProxy.logError("Unable to save configuration file.");
+			XCOMProxy._this().logError("Unable to save configuration file.");
 			e.printStackTrace();
 		  }
 	}

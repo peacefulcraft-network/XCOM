@@ -11,13 +11,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 
 import net.peacefulcraft.xcom.api.transport.Endpoint;
+import net.peacefulcraft.xcom.api.transport.EndpointGroup;
 import net.peacefulcraft.xcom.api.transport.TransportPacket;
 import net.peacefulcraft.xcom.api.transport.TransportPacketReceipt;
 import net.peacefulcraft.xcom.api.transport.TransportResult;
 import net.peacefulcraft.xcom.api.transport.UniqueIdentifier;
 import net.peacefulcraft.xcom.proxy.XCOMProxy;
 
-public class EndpointList implements net.peacefulcraft.xcom.api.transport.EndpointGroup {
+public class EndpointList implements EndpointGroup {
 
 	private String groupName;
 
@@ -64,7 +65,14 @@ public class EndpointList implements net.peacefulcraft.xcom.api.transport.Endpoi
 	}
 
 	@Override
-	public CompletableFuture<TransportPacketReceipt> sendMessage(TransportPacket packet, Long receiptTimeout) {
+	public void sendMessage(TransportPacket packet) {
+		this.endpoints.forEach((endpoint) -> {
+			endpoint.sendMessage(packet);
+		});
+	}
+
+	@Override
+	public CompletableFuture<TransportPacketReceipt> sendMessageWithReturn(TransportPacket packet, Long receiptTimeout) {
 
 		// Wrap in a supplier so we can put this wild ride on its own Thread.
 		Supplier<TransportPacketReceipt> supplier = () -> {
@@ -83,7 +91,7 @@ public class EndpointList implements net.peacefulcraft.xcom.api.transport.Endpoi
 
 				// Send messages to each Endpoint concurrently
 				this.endpoints.forEach((endpoint) -> {
-					netThreads.add(endpoint.sendMessage(packet, receiptTimeout).thenAcceptAsync((receipt) -> {
+					netThreads.add(endpoint.sendMessageWithReturn(packet, receiptTimeout).thenAcceptAsync((receipt) -> {
 						if (receipt.getResult() != TransportResult.SUCCESS) {
 							failures.incrementAndGet();
 							transportResults.add(receipt);
@@ -129,5 +137,4 @@ public class EndpointList implements net.peacefulcraft.xcom.api.transport.Endpoi
 		// Dispatch asychronously
 		return CompletableFuture.supplyAsync(supplier);
 	}
-	
 }

@@ -5,4 +5,14 @@ public class MainConfiguration extends Configuration {
 	public MainConfiguration() {
 		super("config", false);
 	}
+
+	private void loadValues() {
+
+	}
+
+	private Boolean isDebugEnabled;
+	public Boolean isDebugEnabled() { return this.isDebugEnabled; }
+	public void setDebugEnabled(Boolean enabled) {
+		this.isDebugEnabled = enabled;
+	}
 }
