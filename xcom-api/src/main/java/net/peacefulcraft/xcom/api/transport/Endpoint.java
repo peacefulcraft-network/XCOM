@@ -15,5 +15,5 @@ public interface Endpoint {
 	 * @param receiptTimeout How long to wait. 0(ms) means don't wait.
 	 * @return A CompletableFuture that will eventually resolve to the TransportPacketReceipt for this communication
 	 */
-	public CompletableFuture<TransportPacketReceipt> sendMessage(TransportPacket<?> packet, Long receiptTimeout);
+	public CompletableFuture<TransportPacketReceipt> sendMessage(TransportPacket packet, Long receiptTimeout);
 }

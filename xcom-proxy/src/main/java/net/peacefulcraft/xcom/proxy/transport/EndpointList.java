@@ -64,7 +64,7 @@ public class EndpointList implements net.peacefulcraft.xcom.api.transport.Endpoi
 	}
 
 	@Override
-	public CompletableFuture<TransportPacketReceipt> sendMessage(TransportPacket<?> packet, Long receiptTimeout) {
+	public CompletableFuture<TransportPacketReceipt> sendMessage(TransportPacket packet, Long receiptTimeout) {
 
 		// Wrap in a supplier so we can put this wild ride on its own Thread.
 		Supplier<TransportPacketReceipt> supplier = () -> {

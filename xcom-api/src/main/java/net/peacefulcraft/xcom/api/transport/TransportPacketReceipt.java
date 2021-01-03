@@ -28,16 +28,16 @@ public class TransportPacketReceipt {
 		return this.resultReason;
 	}
 
-	private TransportPacket<?> transportPacket;
+	private TransportPacket transportPacket;
 	/**
 	 * If availabile, the packet that we attempted to transport
 	 * @return The TransportPacket involved in this messaging attempt
 	 */
-	public TransportPacket<?> getTransportedPacket() {
+	public TransportPacket getTransportedPacket() {
 		return this.transportPacket;
 	}
 
-	public TransportPacketReceipt(UniqueIdentifier uid, TransportResult result, String resultReason, TransportPacket<?> packet) {
+	public TransportPacketReceipt(UniqueIdentifier uid, TransportResult result, String resultReason, TransportPacket packet) {
 		this.uniqueId = uid;
 		this.result = result;
 		this.resultReason = resultReason;

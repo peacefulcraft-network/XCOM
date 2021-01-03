@@ -1,6 +1,8 @@
 package net.peacefulcraft.xcom.api.transport;
 
-public interface TransportPacket<T> {
+import com.google.gson.JsonObject;
+
+public interface TransportPacket {
 
 	/**
 	 * A 'domain' or 'namespace' which communication is restricted to.
@@ -13,6 +15,6 @@ public interface TransportPacket<T> {
 	 * Returns the data ecapsulated in this TransportPacket
 	 * @return The data.
 	 */
-	public T getData();
+	public JsonObject getData();
 
 }

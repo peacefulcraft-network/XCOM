@@ -14,7 +14,7 @@ public class ProxiedBukkitEndpoint implements Endpoint {
 	}
 
 	@Override
-	public CompletableFuture<TransportPacketReceipt> sendMessage(TransportPacket<?> packet, Long receiptTimeout) {
+	public CompletableFuture<TransportPacketReceipt> sendMessage(TransportPacket packet, Long receiptTimeout) {
 		return null;
 	}
 	
