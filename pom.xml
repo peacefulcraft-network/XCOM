@@ -13,5 +13,6 @@
     <module>xcom-client</module>
     <module>xcom-client-bukkit</module>
 	<module>xcom-client-bungee</module>
+	<module>xcom-server</module>
   </modules>
 </project>

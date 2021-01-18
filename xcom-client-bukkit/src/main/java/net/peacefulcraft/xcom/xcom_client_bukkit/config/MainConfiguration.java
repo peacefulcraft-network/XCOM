@@ -4,6 +4,7 @@ public class MainConfiguration extends Configuration {
 
 	public MainConfiguration() {
 		super("config", "config");
+		this.loadValues();
 	}
 
 	private void loadValues() {

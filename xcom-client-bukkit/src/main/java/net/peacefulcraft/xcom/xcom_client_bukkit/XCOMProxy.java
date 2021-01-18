@@ -5,7 +5,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import net.md_5.bungee.api.ChatColor;
 
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import net.peacefulcraft.xcom.xcom_client_bukkit.config.MainConfiguration;
 
@@ -26,7 +25,7 @@ public class XCOMProxy extends JavaPlugin {
 	 * For improved reload behavior, use this as if it was the class constructor
 	 */
 	public void onEnable() {
-	  this._this = this;
+	  _this = this;
 	  // Save default config if one does not exist. Then load the configuration into memory
 	  configuration = new MainConfiguration();
   
