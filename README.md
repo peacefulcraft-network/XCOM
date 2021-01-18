@@ -1,21 +1,12 @@
-# Bukkit-Plugin-Template
-A Mineccraft Bukkit Plugin Template
+## What is XCOM?
+XCOM is a toolset for improving intra-network continuity. This includes tools for live or short-lived data messaging (command and control messaging usually) and longer-term, persistent data storage.
 
-# Usage
-- This template is tailored of usage in VSCode. You should be prompted to install some VSCode extensions when you open the repo in VSCode to facilitate Java development. This template will still work in other IDEs and you can delete the `.vscode` folder if you don't plan to use VSCode.
-- Install Java and Maven if you don't already have them installed. Google for tutorials on how to do this if you're not sure how.
-- `pom.xml`
-  - If not PCN, update `<groupId>`. Ex `me.parsonswy`
-  - Update `<artifactId>`.
-  - If using a different versioning notiation, update `<version>`
-  - Update `<description>`
--  Project Structure
-  - If not PCN update package structure to match your `<groudId>` Ex `me\parsonswy\templateus`
-  - Change the `net.peacefulcraft.templateus` package to `[whatever you just set the package path to].[name of your plugin]` Ex `me.parsonswy.guishop`
-  - Rename `Templateus.java` to match the name of your plugin. Ex `GuiShop.java`
-  - Change `main\resources\plugin.yml` `main: net.peacefulcraft.templateus.Templateus` to match the path you just set above. Ex `me.parsonswy.guishop.GuiShop`. Note that the `.java` is left off here.
-  - Moving / renaming in the above setups may result in compile errors in the `import` statements. Update any broken package paths accordingly.
-  - Either remove of re-purpose the example command and permission in `plugin.yml`. See the Wiki article linked in `plugin.yml` for more details on what goes into `plugin.yml`.
+## XCOM Eco System
+**XCOM-Core** is the client-server messaging and data storage system. This is pure XCOM. This includes the server implementation, the client API, and the client implementations. This is where the TCP socketry and MongoDB communication occurs.
+
+**XCOM Class 1 Dependent** is an external application or plugin that utilizes an XCOM-Client via the XCOM-API, but exposes it's own functionality through it's own API to perform 'contextualized' XCOM operations. This includes things like the chat and party plugin. These implementations utilize XCOM, expose their own 'contextualized' API to perform operations; some of which are backed by XCOM, and also expose functionality that is visible at a user level. Historically, user visibility is what separates API additions from class 1 dependence.
+
+**XCOM Class 2 Dependent** is an external application or plugin that utilizes an XCOM-Client via the XCOM-API, but does not expose it's own services which rely or mainly rely on the XCOM system. These are typically gamemode plugins which are more about providing a wholistic experience on their own rather than providing a utility service.
 
 # Compiling
 - Open your OS' command terminal and navigate to this project's folder ( folder with `src`, `pom.xml`, `README.md`, etc ).
