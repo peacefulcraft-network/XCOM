@@ -24,7 +24,7 @@
 	<distributionManagement>
 		<repository>
 			<id>nexus.peacefulcraft.net</id>
-			<url>https://nexus.peacefulcraft.net/repository/peacefulcraft-bukkit-snapshot/</url>
+			<url>https://nexus.peacefulcraft.net/repository/peacefulcraft-bukkit-release/</url>
 		</repository>
 		<snapshotRepository>
 			<id>nexus.peacefulcraft.net</id>
