@@ -4,7 +4,7 @@
 	<parent>
     	<artifactId>xcom</artifactId>
     	<groupId>peacefulcraft.net.xcom</groupId>
-    	<version>0.0.1-SNAPSHOT</version>
+    	<version>0.0.1</version>
   	</parent>
 
 	<groupId>net.peacefulcraft.xcom.xcom_client</groupId>
@@ -45,7 +45,7 @@
 		<dependency>
 			<groupId>net.peacefulcraft.xcom.xcom_api</groupId>
 			<artifactId>xcom-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.rabbitmq</groupId>
