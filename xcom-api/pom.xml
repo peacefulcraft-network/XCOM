@@ -19,7 +19,7 @@
 		<url>https://github.com/peacefulcraft-network/XCOM</url>
 		<developerConnection>scm:git:https://github.com/peacefulcraft-network/XCOM.git</developerConnection>
 	  	<tag>0.0.1</tag>
-  </scm>
+  	</scm>
 
 	<distributionManagement>
 		<repository>
@@ -78,7 +78,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>3.0.0-M4</version>
 				<configuration>
-					<tagNameFormat>{project.version}</tagNameFormat>
+					<tagNameFormat>${project.version}</tagNameFormat>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<releaseProfiles>releases</releaseProfiles>
 				</configuration>
@@ -88,6 +88,7 @@
 
 	<profiles>
 		<profile>
+			<!-- Release Profile for maven-release -->
 			<id>releases</id>
 			<build>
 				<plugins>
@@ -107,6 +108,7 @@
 						<configuration>
 						<serverId>nexus.peacefulcraft.net</serverId>
 						<nexusUrl>https://nexus.peacefulcraft.net/</nexusUrl>
+							<!-- skipStaging is really the only line that matters, but we need to override the whole thing -->
 							<skipStaging>true</skipStaging>
 						</configuration>
 					</plugin>
