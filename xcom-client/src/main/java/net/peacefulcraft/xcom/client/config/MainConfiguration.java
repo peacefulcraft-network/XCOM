@@ -19,9 +19,6 @@ public class MainConfiguration extends Configuration {
 
 	private String rabbitMQPassword;
 		public String getRabbitMQPassword() { return this.rabbitMQPassword; }
-	
-	private String rabbitMQTopic;
-		public String getRabbitMQTopic() { return this.rabbitMQTopic; }
 
 	public MainConfiguration() {
 		super("config.yml", "config.yml");
@@ -29,11 +26,12 @@ public class MainConfiguration extends Configuration {
 	}
 
 	private void loadValues() {
+		this.isDebugEnabled = this.config.getBoolean("debug");
 		this.serverName = this.config.getString("server_name");
+
 		this.rabbitMQAddress = this.config.getString("rabbitmq.address");
 		this.rabbitMQPort = this.config.getInt("rabbitmq.port");
 		this.rabbitMQUser = this.config.getString("rabbitmq.user");
 		this.rabbitMQPassword = this.config.getString("rabbitmq.password");
-		this.rabbitMQTopic = this.config.getString("rabbitmq.topic");
 	}
 }

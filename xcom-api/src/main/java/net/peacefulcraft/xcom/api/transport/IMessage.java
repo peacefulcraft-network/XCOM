@@ -3,7 +3,7 @@ package net.peacefulcraft.xcom.api.transport;
 /**
  * Abstract packet structure for inter-server messaging over an arbitrary MessageChannel.
  */
-public interface Message<T> {
+public interface IMessage<T> {
 	/**
 	 * Indicates a more specific message type used to encode this message
 	 * and which should be used to decode the message.

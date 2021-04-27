@@ -2,7 +2,7 @@ package net.peacefulcraft.xcom.api.client;
 
 import net.peacefulcraft.xcom.api.party.PartyService;
 import net.peacefulcraft.xcom.api.profile.UserProfileService;
-import net.peacefulcraft.xcom.api.transport.MessageChannel;
+import net.peacefulcraft.xcom.api.transport.IMessageChannel;
 
 public interface IXCOMClient {
 	/**
@@ -22,5 +22,5 @@ public interface IXCOMClient {
 	 * can be cast to a morespeciifc MessageChannel implementer if the type is known.
 	 * @return MessageChannel instance.
 	 */
-	public MessageChannel<?> getMessageChannel(String channelNamespace);
+	public IMessageChannel<?> getMessageChannel(String channelNamespace);
 }

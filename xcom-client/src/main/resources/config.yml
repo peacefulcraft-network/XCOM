@@ -1,1 +1,8 @@
 debug: false
+
+server_name: ""
+rabbitmq:
+  address: ""
+  port: 5672
+  user: ""
+  password: ""

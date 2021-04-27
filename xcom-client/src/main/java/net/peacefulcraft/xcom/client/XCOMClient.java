@@ -4,8 +4,8 @@ import java.util.logging.Level;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.peacefulcraft.xcom.client.chat.ChatManager;
 import net.peacefulcraft.xcom.client.config.MainConfiguration;
+import net.peacefulcraft.xcom.client.transport.RabbitMQMessengeChannel;
 
 public class XCOMClient extends JavaPlugin {
 
@@ -15,13 +15,27 @@ public class XCOMClient extends JavaPlugin {
 	private MainConfiguration configuration;
 		public MainConfiguration getConfiguration() { return this.configuration; }
 
-	private ChatManager chatManager;
-		public ChatManager getChatManager() { return this.chatManager; }
-
 	@Override
 	public void onEnable() {
 		_this = this;
-		this.chatManager = new ChatManager();
+		this.configuration = new MainConfiguration();
+
+		// Check for RabbitMQ ISM backend configuration values
+		if (
+			this.configuration.getRabbitMQAddress() == null
+			|| this.configuration.getRabbitMQPort() == null
+			|| this.configuration.getRabbitMQUser() == null
+			|| this.configuration.getRabbitMQPassword() == null
+		) {
+			this.logWarning("RabbitMQ credentials not provided. ISM is disabled.");
+		} else {
+			RabbitMQMessengeChannel.setupConnection(
+				this.configuration.getRabbitMQAddress(),
+				this.configuration.getRabbitMQPort(),
+				this.configuration.getRabbitMQUser(),
+				this.configuration.getRabbitMQPassword()
+			);
+		}
 	}
 
 	@Override
@@ -30,7 +44,7 @@ public class XCOMClient extends JavaPlugin {
 	}
 
 	public void logDebug(String message) {
-		if (configuration.isDebugEnabled()) {
+		if (this.configuration.isDebugEnabled()) {
 			this.getServer().getLogger().log(Level.INFO, message);
 		}
 	}

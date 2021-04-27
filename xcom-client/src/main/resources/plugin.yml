@@ -2,8 +2,8 @@
 # Reference
 # https://bukkit.gamepedia.com/Plugin_YAML
 #
-name: xcom-base
-main: net.peacefulcraft.xcom.base.XCOMBase
+name: xcom-client
+main: net.peacefulcraft.xcom.client.XCOMClient
 version: 0.0.1
 api-version: 1.16
 website: https://www.peacefulcraft.net/
