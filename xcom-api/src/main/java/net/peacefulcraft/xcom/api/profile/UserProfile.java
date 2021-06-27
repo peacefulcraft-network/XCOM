@@ -51,8 +51,9 @@ public interface UserProfile {
 
 	/**
 	 * Link this UserProfile to the provided Discord account ID.
+	 * @param id Discord snowflake to link to this account
 	 */
-	public void linkDiscordID();
+	public void linkDiscordID(String id);
 
 	/**
 	 * Clear this UserProfile from it's Discord account link, if it exists.

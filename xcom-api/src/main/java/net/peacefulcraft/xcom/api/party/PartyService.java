@@ -6,15 +6,9 @@ public interface PartyService {
 	
 	/**
 	 * Retrieve a Party object by the party ID
+	 * @return The requested Party, or null if non-exists.
 	 */
 	public Party getParty(Long partyId);
-
-	/**
-	 * Check if a party with the given ID exsts
-	 * @param partyId Party ID to check for
-	 * @return True if party exists, false otherwise
-	 */
-	public Boolean doesPartyExist(Long partyId);
 
 	/**
 	 * Create a new Party object with the given UserProfile as the leader
