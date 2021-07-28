@@ -8,6 +8,7 @@ import net.peacefulcraft.xcom.api.client.IXCOMClient;
 import net.peacefulcraft.xcom.api.party.IPartyService;
 import net.peacefulcraft.xcom.api.profile.IUserProfileService;
 import net.peacefulcraft.xcom.api.transport.IMessageChannel;
+import net.peacefulcraft.xcom.client.commands.DebugProfileCommand;
 import net.peacefulcraft.xcom.client.config.MainConfiguration;
 import net.peacefulcraft.xcom.client.listeners.PlayerDisconnectListener;
 import net.peacefulcraft.xcom.client.listeners.PlayerPreJoinListener;
@@ -17,6 +18,8 @@ import net.peacefulcraft.xcom.util.http.APIRoutes;
 import net.peacefulcraft.xcom.util.http.HttpUtilities;
 
 public class XCOMClient extends JavaPlugin implements IXCOMClient {
+
+	public static final String messagingPrefix = "[XCOM] ";
 
 	private static XCOMClient _this;
 		public static XCOMClient _this() { return _this; }
@@ -52,6 +55,11 @@ public class XCOMClient extends JavaPlugin implements IXCOMClient {
 		HttpUtilities.init(this.configuration.getXcomToken());
 
 		this.userProfileService = new UserProfileService();
+
+		/*
+			Setup commands
+		*/
+		this.getCommand("xcm-profile").setExecutor(new DebugProfileCommand());
 
 		/*
 			Setup event listeners

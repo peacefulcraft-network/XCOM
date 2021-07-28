@@ -11,17 +11,11 @@ depend: []
 softdepend: []
 
 commands:
-  example:
-    aliases: [ 'exmple' ]
-    description: This is an example command
-    permission-message:  Permission templateus.example is required to use this command
+  xcm-profile:
+    description: XCOM Profile Debug Command
+    permission-message:  Permission xcom.* is required to use this command
     usage: /<command> to use the example command.
 
 permissions:
-  templateus.*:
-    description: Gives access to all templateus commands
-    children:
-      templateus.example: true
-  templateus.example:
-    description: Gives access to tempateus' example command
-    default: op
+  xcom.*:
+    description: Gives access to all xcom commands
