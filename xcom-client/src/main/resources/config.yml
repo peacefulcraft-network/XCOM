@@ -1,6 +1,11 @@
 debug: false
 
 server_name: ""
+
+xcom:
+  api_base_url: ""
+  api_token: ""
+
 rabbitmq:
   address: ""
   port: 5672

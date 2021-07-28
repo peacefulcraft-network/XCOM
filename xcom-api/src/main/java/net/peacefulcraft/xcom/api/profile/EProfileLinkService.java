@@ -1,5 +1,5 @@
 package net.peacefulcraft.xcom.api.profile;
 
-public enum ProfileLinkService {
+public enum EProfileLinkService {
 	DISCORD, MOJANG, FLARUM
 }

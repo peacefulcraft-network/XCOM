@@ -1,9 +1,9 @@
 package net.peacefulcraft.xcom.api.party;
 
-import net.peacefulcraft.xcom.api.profile.UserProfile;
+import net.peacefulcraft.xcom.api.profile.IUserProfile;
 
 
-public interface Party extends Iterable<UserProfile> {
+public interface IParty extends Iterable<IUserProfile> {
 
 	/**
 	 * Get the unique ID for this party.
@@ -27,26 +27,26 @@ public interface Party extends Iterable<UserProfile> {
 	 * Get the party leader's UserProfile
 	 * @return Party leader's UserProfile
 	 */
-	public UserProfile getPartyLeader();
+	public IUserProfile getPartyLeader();
 
 	/**
 	 * Add new regular member to the party
 	 * @param member UserProfile of member to add
 	 */
-	public void addMember(UserProfile member);
+	public void addMember(IUserProfile member);
 
 	/**
 	 * Remove regular member from the party
 	 * @param member UserProfile of the member to remove
 	 * @throws RuntimeException If member is the Party leader
 	 */
-	public void removeMember(UserProfile member);
+	public void removeMember(IUserProfile member);
 
 	/**
 	 * Change the leader of the party to the given UserProfile
 	 * @param leader New Party leader
 	 */
-	public void setLeader(UserProfile leader);
+	public void setLeader(IUserProfile leader);
 
 	/**
 	 * Delete the party

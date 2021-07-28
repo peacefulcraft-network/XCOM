@@ -8,6 +8,12 @@ public class MainConfiguration extends Configuration {
 	private String serverName;
 		public String getServerName() { return this.serverName; }
 
+	private String xcomAPIBaseURL;
+		public String getXcomAPIBaseURL() { return this.xcomAPIBaseURL; }
+
+	private String xcomToken;
+		public String getXcomToken() { return this.xcomToken; }
+
 	private String rabbitMQAddress;
 		public String getRabbitMQAddress() { return this.rabbitMQAddress; }
 
@@ -28,6 +34,9 @@ public class MainConfiguration extends Configuration {
 	private void loadValues() {
 		this.isDebugEnabled = this.config.getBoolean("debug");
 		this.serverName = this.config.getString("server_name");
+
+		this.xcomAPIBaseURL = this.config.getString("xcom.api_base_url");
+		this.xcomToken = this.config.getString("xcom.api_token");
 
 		this.rabbitMQAddress = this.config.getString("rabbitmq.address");
 		this.rabbitMQPort = this.config.getInt("rabbitmq.port");

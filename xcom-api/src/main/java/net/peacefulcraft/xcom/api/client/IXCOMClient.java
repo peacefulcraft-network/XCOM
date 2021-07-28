@@ -1,7 +1,7 @@
 package net.peacefulcraft.xcom.api.client;
 
-import net.peacefulcraft.xcom.api.party.PartyService;
-import net.peacefulcraft.xcom.api.profile.UserProfileService;
+import net.peacefulcraft.xcom.api.party.IPartyService;
+import net.peacefulcraft.xcom.api.profile.IUserProfileService;
 import net.peacefulcraft.xcom.api.transport.IMessageChannel;
 
 public interface IXCOMClient {
@@ -9,13 +9,13 @@ public interface IXCOMClient {
 	 * Returns an async-safe service for accessing Party information
 	 * @return Party service instance
 	 */
-	public PartyService getPartyService();
+	public IPartyService getPartyService();
 
 	/**
 	 * Returns an async-safe service for acessing UserProfile information
 	 * @return UserProfile service instances
 	 */
-	public UserProfileService getUserProfileService();
+	public IUserProfileService getUserProfileService();
 
 	/**
 	 * Returns an async-safe MessageChannel object for the given namespace that

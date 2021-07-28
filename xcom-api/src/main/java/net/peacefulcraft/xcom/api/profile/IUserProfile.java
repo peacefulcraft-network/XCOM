@@ -1,11 +1,12 @@
 package net.peacefulcraft.xcom.api.profile;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
  *	Exposes a general UserProfile object's properties, subservices, and link IDs.
  */
-public interface UserProfile {
+public interface IUserProfile {
 	/**
 	 * Internal ID associated with all PeacefulCraft accounts.
 	 * PeacefulCraft profile IDs are immutable.
@@ -16,7 +17,7 @@ public interface UserProfile {
 	/**
 	 * @return If available, the user's Minecraft UUID. Otherwise null. 
 	 */
-	public UUID getMojangID();
+	public List<UUID> getMojangIDs();
 
 	/**
 	 * Link this UserProfile to the provided Mojang account ID.
@@ -26,12 +27,12 @@ public interface UserProfile {
 	/**
 	 * Clear this UserProfile from it's Mojang account link, if it exists.
 	 */
-	public void unlinkMojangID();
+	public void unlinkMojangID(UUID id);
 
 	/**
 	 * @return If available, the user's PCN Flarum user ID. Otherwise null
 	 */
-	public Long getFlarumID();
+	public List<Long> getFlarumIDs();
 
 	/**
 	 * Link this UserProfile to the provided Flarum account ID.
@@ -42,12 +43,12 @@ public interface UserProfile {
 	/**
 	 * Clear this UserProfile from it's Flarum account link, if it exists.
 	 */
-	public void unlinkFlarumID();
+	public void unlinkFlarumID(Long id);
 
 	/**
 	 * @return If available, the user's Discord ID. Otherwise null.
 	 */
-	public String getDiscordID();
+	public List<String> getDiscordIDs();
 
 	/**
 	 * Link this UserProfile to the provided Discord account ID.
@@ -58,7 +59,7 @@ public interface UserProfile {
 	/**
 	 * Clear this UserProfile from it's Discord account link, if it exists.
 	 */
-	public void unlinkDiscordID();
+	public void unlinkDiscordID(String id);
 
 	/**
 	 * Delete this UserProfile.
