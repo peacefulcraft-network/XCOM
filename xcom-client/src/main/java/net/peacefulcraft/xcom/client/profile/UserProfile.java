@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import net.peacefulcraft.xcom.api.profile.EProfileLinkService;
@@ -44,31 +43,37 @@ public class UserProfile implements IUserProfile{
 	public synchronized List<UUID> getMojangIDs() { return Collections.unmodifiableList(this.mojangIds); }
 
 	@Override
-	public void linkMojangID(UUID id) {
+	public void linkMojangID(UUID mojangId) {
 		JsonObject body = new JsonObject();
 		body.addProperty("link_service", EProfileLinkService.MOJANG.toString());
-		body.addProperty("link", id.toString());
+		body.addProperty("link", mojangId.toString());
 		body.addProperty("is_speculative", false);
 		body.addProperty("visibility", EProfileLinkVisibility.PUBLIC_VISIBLE.toString());
 
 		HttpUtilities.postReq(APIRoutes.createServiceLinkUrl(this.pcnId), body);
 
-		this.mojangIds.add(id);
+		this.mojangIds.add(mojangId);
 	}
 
 	@Override
 	public void unlinkMojangID(UUID id) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public synchronized List<Long> getFlarumIDs() { return Collections.unmodifiableList(this.flarumIds); }
 
 	@Override
-	public void linkFlarumID(Long id) {
-		// TODO Auto-generated method stub
-		
+	public void linkFlarumID(Long flarumId) {
+		JsonObject body = new JsonObject();
+		body.addProperty("link_service", EProfileLinkService.FLARUM.toString());
+		body.addProperty("link", flarumId.toString());
+		body.addProperty("is_speculative", false);
+		body.addProperty("visibility", EProfileLinkVisibility.PUBLIC_VISIBLE.toString());
+
+		HttpUtilities.postReq(APIRoutes.createServiceLinkUrl(this.pcnId), body);
+
+		this.flarumIds.add(flarumId);
 	}
 
 	@Override
@@ -81,19 +86,25 @@ public class UserProfile implements IUserProfile{
 	public synchronized List<String> getDiscordIDs() { return Collections.unmodifiableList(this.discordIds); }
 
 	@Override
-	public void linkDiscordID(String id) {
-		// TODO Auto-generated method stub
+	public void linkDiscordID(String snowflae) {
+		JsonObject body = new JsonObject();
+		body.addProperty("link_service", EProfileLinkService.DISCORD.toString());
+		body.addProperty("link", snowflae.toString());
+		body.addProperty("is_speculative", false);
+		body.addProperty("visibility", EProfileLinkVisibility.PUBLIC_VISIBLE.toString());
+
+		HttpUtilities.postReq(APIRoutes.createServiceLinkUrl(this.pcnId), body);
+
+		this.discordIds.add(snowflae);
 	}
 
 	@Override
 	public void unlinkDiscordID(String id) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	@Override
 	public void deleteProfile() {
 		// TODO Auto-generated method stub
-		
 	}
 }
